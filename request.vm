@@ -1,0 +1,19 @@
+##set($myjson = $headers.jsonTool.parse($body))
+#set($myjson = $exchange.properties.jsonTool.parse($body))
+
+{
+    "FCID": "708",
+    "CTID": "$exchange.getExchangeId()",
+    "SN": "CPN_CALCULATE_CONCENTRATION_FOR_WS",
+    "TCID": "000",
+    "UID": "T99009",
+    "PAR": {
+        "IDNUMBER": "$!{myjson.firmaVergiNo}",
+        "FROMTIP": "$!{myjson.firmaTipi}",
+        "IDENTITY": "$!{myjson.kesideciTCKNVKN}",	
+        "AMOUNT": "$!{myjson.cekTutar}",
+        "EXCHANGECODE2": "$!{myjson.cekDovizCinsi}",
+        "TERM": "$!{myjson.cekVadeTarihi}",
+        "SERIALNUMBER": "$!{myjson.cekSeriNo}"
+    }
+}
